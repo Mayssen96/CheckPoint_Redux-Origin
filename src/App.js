@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Main from './Components/Main';
+import {Route, Routes} from 'react-router-dom'
+import Card from './Components/UI/Card'
+import { useState } from 'react'
+import CustomNavbar from './Components/UI/CustomNavbar';
 function App() {
+  const [title,setTitle] = useState('')
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <CustomNavbar setTitle = {setTitle}/>
+    <Routes>
+   
+    <Route path = "/" element = {<Main/>} />
+    <Route path = "/Card/:id" element = {<Card/>} />
+    </Routes>
     </div>
   );
 }
